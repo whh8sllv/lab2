@@ -20,10 +20,22 @@ class TestRecode(unittest.TestCase):
     def test_recode_digit_string_equal(self):
         self.assertEqual(lab2.recode('123456789'), '123456789')
 
-    def test_recode_wrong_input(self):
-        self.assertFalse(lab2.recode('             '))
-        self.assertFalse(lab2.recode('_hello_world_'))
-        self.assertFalse(lab2.recode('привіт світ!'))
+    def test_recode_empty_input(self):
+        with self.assertRaises(SystemExit) as cm:
+            lab2.recode('             ')
+        self.assertEqual(cm.exception.code, 1)
+
+    def test_recode_wrong_symbols(self):
+        with self.assertRaises(SystemExit) as cm:
+            lab2.recode('_hello_world_')
+        self.assertEqual(cm.exception.code, 1)
+
+    def test_recode_wrong_alphabet(self):
+        with self.assertRaises(SystemExit) as cm:
+            lab2.recode('привіт світ!')
+        self.assertEqual(cm.exception.code, 1)
+
+
 
 
 if __name__ == '__main__':
