@@ -36,8 +36,8 @@ class TestRecode(unittest.TestCase):
         self.assertEqual(cm.exception.code, 1)
 
     def test_code_successful(self):
-        input_text = "hello world"
-        correct_output = "Your decrypted text: uryyb jbeyq"
+        input_text = 'hello world'
+        correct_output = 'Your decrypted text: uryyb jbeyq'
         sys.stdin = io.StringIO(input_text)
         sys.stdout = io.StringIO()
 
