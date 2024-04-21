@@ -23,12 +23,18 @@ def recode(txt):
             elif i in symbol_set or i.isdigit():
                 res += i
             else:
-                sys.stderr.write(f'Sorry, your text contains a character that is contrary to the conditions: {i}')
+                sys.stderr.write(f'Sorry, your text contains a character that is contrary to the conditions')
                 sys.exit(1)
 
 
     return res
 
+def main():
+    final = recode(sys.stdin.readline().strip())
+    if final:
+        sys.stdout.write(f'Your decrypted text: {final}')
+    sys.exit(0)
+
 
 if __name__ == '__main__':
-    sys.stdout.write(f'Your decrypted text: {recode(sys.stdin.readline().strip())}')
+    main()
